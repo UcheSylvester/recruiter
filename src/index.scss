@@ -1,0 +1,37 @@
+body {
+  font-family: var(--default-font-family);
+  font-size: var(--default-font-size);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // This defines the value of 1rem.
+  font-size: 62.5%; // 62.5% of 16px (default browser font size) = 10px. This makes it easier to compute font-size values.
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+// Variables
+:root {
+  --default-font-size: 1.6rem;
+  --default-font-family: "Open Sans", sans-serif;
+  --default-box-shadow: 0 5px 5px -5px rgba(#000, 0.15);
+  --color-text: #080808;
+  --color-border: #eaeaea;
+  --bg-light: #fafafa;
+}
