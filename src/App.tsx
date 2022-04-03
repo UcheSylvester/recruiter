@@ -1,9 +1,9 @@
-import EmployeeFormContainer from "./components/employee-form-container";
+import OnboardingFormContainer from "./components/onboarding-form-container";
 import Layout from "./components/layout";
 
 const App = () => (
   <Layout pageTitle="Recruiter | Home page">
-    <EmployeeFormContainer />
+    <OnboardingFormContainer />
   </Layout>
 );
 

@@ -1,7 +1,7 @@
-import EmployeeForm from "./employee-form";
+import OnboardingForm from "./onboarding-form";
 import "./index.scss";
 
-const EmployeeFormContainer = () => {
+const OnboardingFormContainer = () => {
   return (
     <section className="employee-form__container">
       <div className="employee-form__image-container">
@@ -9,9 +9,9 @@ const EmployeeFormContainer = () => {
 
         <p>Get hired by companies around the world</p>
       </div>
-      <EmployeeForm />
+      <OnboardingForm />
     </section>
   );
 };
 
-export default EmployeeFormContainer;
+export default OnboardingFormContainer;
