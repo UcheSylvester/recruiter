@@ -45,7 +45,7 @@ const useOnboardingForm = () => {
     e.preventDefault();
 
     // we can only get here when all required fields are filled
-    // so it is safe to remove inputs without value
+    // so it is safe to remove inputs that have no value
     const filteredFormValues = Object.entries(formValues).filter(
       ([, value]) => value !== ""
     );
