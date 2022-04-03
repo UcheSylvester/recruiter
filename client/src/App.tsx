@@ -1,5 +1,7 @@
 import Layout from "./components/layout";
 import OnboardingForm from "./components/onboarding-form";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 import "./App.scss";
 
@@ -10,6 +12,8 @@ const App = () => (
     <p>Get hired by companies around the world</p>
 
     <OnboardingForm />
+
+    <ToastContainer />
   </Layout>
 );
 

@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { capitalize } from "../helpers";
+import useData from "./use-data";
 
 export type Country = "spain" | "ghana" | "brazil" | "";
 
@@ -30,6 +32,8 @@ const useOnboardingForm = () => {
   const [formValues, setFormValues] = useState<FormValues>(defaultValues);
   const [formErrors, setFormErrors] = useState<FormValues>(defaultValues);
 
+  const { makeRequest } = useData({ url: "/employees" });
+
   const onSetFormValue = (key: keyof FormValues, value: string) =>
     setFormValues({ ...formValues, [key]: value });
 
@@ -37,7 +41,7 @@ const useOnboardingForm = () => {
     onSetFormValue(name as keyof FormValues, value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // we can only get here when all required fields are filled
@@ -64,7 +68,18 @@ const useOnboardingForm = () => {
 
     console.log("submiting form", { formData });
 
-    // submit form
+    submitForm(formData);
+  };
+
+  const submitForm = async (formData: Record<string, string>) => {
+    try {
+      const data = await makeRequest({ data: formData, method: "post" });
+      console.log({ data });
+      toast("Successfully created employee", { type: "success" });
+    } catch (error) {
+      console.log({ error });
+      toast("Error creating employee", { type: "error" });
+    }
   };
 
   const getHolidayAllowanceError = (value: number, country: Country) => {
