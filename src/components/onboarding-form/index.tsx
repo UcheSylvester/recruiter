@@ -1,7 +1,7 @@
-import { capitalize } from "../../../helpers";
-import useOnboardingForm, { Country } from "../../../hooks/use-onboarding-form";
-import Button from "../../button";
-import FormInput from "../../form-input";
+import { capitalize } from "../../helpers";
+import useOnboardingForm, { Country } from "../../hooks/use-onboarding-form";
+import Button from "../button";
+import FormInput from "../form-input";
 import "./index.scss";
 
 export const countries: Country[] = ["ghana", "spain", "brazil"];
