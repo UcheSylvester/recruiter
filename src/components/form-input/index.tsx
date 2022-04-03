@@ -9,6 +9,7 @@ export interface FormInputProps extends React.HTMLProps<any> {
   label: string;
   options?: SelectOption[];
   error?: string;
+  handleChange: (name: string, value: string) => void;
 }
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -18,10 +19,15 @@ const FormInput: React.FC<FormInputProps> = ({
   type = "text",
   options,
   required = true,
+  handleChange,
   error,
   ...otherProps
 }) => {
   const cls = `form-input ${error ? "form-input--error" : ""}`;
+
+  const onChange = (e: React.ChangeEvent<any>) => {
+    handleChange(e.target.name, e.target.value);
+  };
 
   return (
     <div className="input-group">
@@ -31,7 +37,9 @@ const FormInput: React.FC<FormInputProps> = ({
           id={name}
           value={value}
           required={required}
+          data-testid={`${name}--select`}
           {...otherProps}
+          onChange={onChange}
           className={cls}
         >
           <option value="">Select an Option</option>
@@ -49,7 +57,9 @@ const FormInput: React.FC<FormInputProps> = ({
           value={value}
           type={type}
           required={required}
+          data-testid={name}
           {...otherProps}
+          onChange={onChange}
         />
       )}
 

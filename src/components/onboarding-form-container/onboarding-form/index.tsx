@@ -75,7 +75,7 @@ const OnboardingForm = () => {
         name="first_name"
         value={first_name}
         error={first_name_error}
-        onChange={handleChange}
+        handleChange={handleChange}
         onBlur={handleBlur}
       />
       <FormInput
@@ -83,7 +83,7 @@ const OnboardingForm = () => {
         name="last_name"
         error={last_name_error}
         value={last_name}
-        onChange={handleChange}
+        handleChange={handleChange}
         onBlur={handleBlur}
       />
       <FormInput
@@ -92,7 +92,7 @@ const OnboardingForm = () => {
         name="date_of_birth"
         error={date_of_birth_error}
         value={date_of_birth}
-        onChange={handleChange}
+        handleChange={handleChange}
         onBlur={handleBlur}
       />
       <FormInput
@@ -101,7 +101,7 @@ const OnboardingForm = () => {
         label="Country of work"
         name="country_of_work"
         error={country_of_work_error}
-        onChange={handleChange}
+        handleChange={handleChange}
         options={countries.map((country) => ({
           label: capitalize(country),
           value: country,
@@ -116,12 +116,12 @@ const OnboardingForm = () => {
         error={holiday_allowance_error}
         onBlur={handleBlur}
         value={holiday_allowance}
-        onChange={handleChange}
+        handleChange={handleChange}
       />
 
       {country_of_work && (
         <FormInput
-          onChange={handleChange}
+          handleChange={handleChange}
           onBlur={handleBlur}
           {...getMaritalStatusOrWorkingHourProps(country_of_work)}
         />
@@ -134,7 +134,7 @@ const OnboardingForm = () => {
           error={social_insurance_number_error}
           onBlur={handleBlur}
           value={social_insurance_number}
-          onChange={handleChange}
+          handleChange={handleChange}
         />
       )}
 
@@ -146,7 +146,7 @@ const OnboardingForm = () => {
           error={number_of_children_error}
           onBlur={handleBlur}
           value={number_of_children}
-          onChange={handleChange}
+          handleChange={handleChange}
         />
       )}
 

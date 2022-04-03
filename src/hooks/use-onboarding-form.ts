@@ -33,9 +33,8 @@ const useOnboardingForm = () => {
   const onSetFormValue = (key: keyof FormValues, value: string) =>
     setFormValues({ ...formValues, [key]: value });
 
-  const handleChange = (e: React.ChangeEvent<any>) => {
-    const { name, value } = e.target;
-    onSetFormValue(name, value);
+  const handleChange = (name: string, value: string) => {
+    onSetFormValue(name as keyof FormValues, value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
