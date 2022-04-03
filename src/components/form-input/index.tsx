@@ -37,7 +37,7 @@ const FormInput: React.FC<FormInputProps> = ({
           id={name}
           value={value}
           required={required}
-          data-testid={`${name}--select`}
+          data-testid={name}
           {...otherProps}
           onChange={onChange}
           className={cls}

@@ -61,7 +61,7 @@ const OnboardingForm = () => {
       type: "number",
     };
 
-    if (country === "ghana") {
+    if (country === "brazil") {
       return workingHourProps;
     }
 

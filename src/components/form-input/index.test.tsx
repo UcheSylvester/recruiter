@@ -24,7 +24,7 @@ describe("<FormInput />", () => {
   it("should render select when type is select", () => {
     renderFormInput({ type: "select" });
 
-    const select = screen.getByTestId("name--select");
+    const select = screen.getByTestId("name");
     const input = screen.queryByRole("textbox");
 
     expect(select).toBeInTheDocument();
