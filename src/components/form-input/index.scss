@@ -8,7 +8,7 @@ $main-color: black;
   padding: 0 0.5rem;
 }
 
-.group {
+.input-group {
   position: relative;
   margin-top: 3rem;
   width: 100%;
@@ -24,6 +24,10 @@ $main-color: black;
     border: none;
     border-radius: 0.5rem;
     border: 1px solid $sub-color;
+
+    &--error {
+      border-color: red;
+    }
 
     &:focus {
       outline: none;
@@ -60,5 +64,11 @@ $main-color: black;
     &.shrink {
       @include shrinkLabel();
     }
+  }
+
+  .error {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
   }
 }
