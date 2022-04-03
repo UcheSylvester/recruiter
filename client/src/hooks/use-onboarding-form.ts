@@ -41,7 +41,7 @@ const useOnboardingForm = () => {
     onSetFormValue(name as keyof FormValues, value);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // we can only get here when all required fields are filled
@@ -66,8 +66,6 @@ const useOnboardingForm = () => {
       return { ...acc, [key]: value };
     }, {});
 
-    console.log("submiting form", { formData });
-
     submitForm(formData);
   };
 
@@ -75,11 +73,17 @@ const useOnboardingForm = () => {
     try {
       const data = await makeRequest({ data: formData, method: "post" });
       console.log({ data });
+      resetForm();
       toast("Successfully created employee", { type: "success" });
     } catch (error) {
       console.log({ error });
       toast("Error creating employee", { type: "error" });
     }
+  };
+
+  const resetForm = () => {
+    setFormValues(defaultValues);
+    setFormErrors(defaultValues);
   };
 
   const getHolidayAllowanceError = (value: number, country: Country) => {
